@@ -6,12 +6,10 @@ WORKDIR /var/flaskapp
 
 COPY .  .
 
-RUN apk update
-
-RUN apk add python3
+RUN apk update && apk add python3 --no-cache
 
 RUN pip3 install -r requirement.txt
 
 EXPOSE 5000 
 
-CMD ["python3","app.py"]
+CMD ["python3", "app.py"]
